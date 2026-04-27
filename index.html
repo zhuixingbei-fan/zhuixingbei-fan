@@ -5,115 +5,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>坠猩杯 · 粉丝档案馆</title>
     <style>
-        body {
-            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            background: #f5f7fb;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        header {
-            background: linear-gradient(135deg, #ff9a3c, #ff6f3c);
-            border-radius: 24px;
-            padding: 2rem;
+        body {
+            font-family: 'Segoe UI', 'Poppins', system-ui, -apple-system, sans-serif;
+            height: 100vh;
+            background: linear-gradient(135deg, #0a0f1e 0%, #0f172a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .poster {
             text-align: center;
-            color: white;
-            margin-bottom: 2rem;
+            animation: fadeInUp 1.2s ease-out;
         }
         h1 {
-            margin: 0;
-            font-size: 2.5rem;
+            font-size: 5rem;
+            background: linear-gradient(135deg, #FFB347, #FF6F00);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 4px;
+            text-shadow: 0 0 20px rgba(255,111,0,0.3);
         }
-        .tagline {
+        .sub {
             font-size: 1.2rem;
-            opacity: 0.9;
+            color: #cbd5e6;
+            margin-top: 1rem;
+            letter-spacing: 2px;
         }
-        nav {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-        nav a {
-            background: white;
-            text-decoration: none;
-            padding: 0.6rem 1.2rem;
-            border-radius: 40px;
-            color: #ff6f3c;
-            font-weight: bold;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            transition: 0.2s;
-        }
-        nav a:hover {
-            background: #ffefe5;
-            transform: translateY(-2px);
-        }
-        .card-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 24px;
-            justify-content: center;
-        }
-        .card {
-            background: white;
-            border-radius: 24px;
-            padding: 1.5rem;
-            width: 260px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+        .enter-hint {
+            position: absolute;
+            bottom: 10%;
+            left: 0;
+            right: 0;
             text-align: center;
-            transition: 0.2s;
+            color: #ff8c42;
+            font-size: 0.9rem;
+            animation: bounce 1.5s infinite;
         }
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 16px 24px rgba(0,0,0,0.1);
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        .card a {
-            text-decoration: none;
-            color: #ff6f3c;
-            font-weight: bold;
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(8px); }
         }
-        footer {
-            margin-top: 3rem;
-            text-align: center;
-            color: #6c757d;
-            font-size: 0.8rem;
-            border-top: 1px solid #ddd;
-            padding-top: 1.5rem;
+        /* 背景光晕 */
+        .glow {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,111,0,0.2), transparent);
+            border-radius: 50%;
+            filter: blur(60px);
+            pointer-events: none;
         }
+        .glow1 { top: 20%; left: 10%; }
+        .glow2 { bottom: 20%; right: 10%; }
     </style>
 </head>
-<body>
-    <header>
-        <h1>🦍 坠猩杯 · 粉丝档案馆 🥚</h1>
-        <div class="tagline">所有录屏、选手、二创，都在这里</div>
-    </header>
-    <nav>
-        <a href="index.html">🏠 首页</a>
-        <a href="videos.html">🎬 录屏大厅</a>
-        <a href="players.html">👥 闪亮名册</a>
-        <a href="fanworks.html">🎨 二创回廊</a>
-    </nav>
-    <div class="card-grid">
-        <div class="card">
-            <h3>🎬 录屏大厅</h3>
-            <p>历届比赛完整回放，按选手/战队分类</p>
-            <a href="videos.html">进入 →</a>
-        </div>
-        <div class="card">
-            <h3>👥 闪亮名册</h3>
-            <p>胖蛋军团 & 猩仔联盟 选手资料</p>
-            <a href="players.html">查看选手 →</a>
-        </div>
-        <div class="card">
-            <h3>🎨 二创回廊</h3>
-            <p>粉丝绘画、视频、表情包大集合</p>
-            <a href="fanworks.html">欣赏创作 →</a>
-        </div>
+<body onclick="location.href='host.html';">
+    <div class="glow glow1"></div>
+    <div class="glow glow2"></div>
+    <div class="poster">
+        <h1>🦍 坠猩杯 · 档案馆 🥚</h1>
+        <div class="sub">所有狂欢，在此永存</div>
+        <div class="enter-hint">↓ 点击任意处进入 ↓</div>
     </div>
-    <footer>
-        ❤️ 粉丝自建 · 非官方 · 为热爱而生<br>
-        第二届坠猩杯，我们不见不散
-    </footer>
 </body>
 </html>
