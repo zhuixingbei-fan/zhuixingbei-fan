@@ -1,4 +1,57 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head><meta charset="UTF-8"><title>二创回廊 - 坠猩杯</title><style>/* 快速样式 */body{font-family:system-ui;max-width:1200px;margin:0 auto;padding:20px;background:#f5f7fb;}header{background:linear-gradient(135deg,#ff9a3c,#ff6f3c);border-radius:24px;padding:2rem;text-align:center;color:white;}nav a{background:white;padding:0.6rem 1.2rem;border-radius:40px;color:#ff6f3c;text-decoration:none;margin:0.5rem;display:inline-block;}.work-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;}footer{text-align:center;margin-top:2rem;}</style></head>
-<body><header><h1>🎨 二创回廊</h1><div>粉丝绘画、视频、表情包</div></header><nav><a href="index.html">首页</a><a href="videos.html">录屏</a><a href="players.html">选手</a><a href="fanworks.html">二创</a></nav><div class="work-grid"><div style="background:white;padding:1rem;border-radius:20px;">🎬 <a href="https://www.bilibili.com/video/BV1xx411C7Ya" target="_blank">【坠猩杯】胖蛋军团名场面混剪</a><br>by 某位蛋仔</div><div style="background:white;padding:1rem;border-radius:20px;">🖼️ <a href="#">【绘画】桃黑黑·猩仔大作战</a><br>by 画画的小蛋</div><div style="background:white;padding:1rem;border-radius:20px;">😂 <a href="#">【表情包】坠猩杯日常合集</a><br>by 蛋仔表情包工厂</div></div><footer>💡 想投稿二创？欢迎联系！</footer></body></html>
+<head>
+    <meta charset="UTF-8">
+    <title>全站二创回廊 · 坠猩杯</title>
+    <style>
+        body { background: #0B1120; color: #eef; font-family: system-ui; padding: 2rem; max-width: 1200px; margin: 0 auto; }
+        h1 { color: #FFB347; text-align: center; }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .card {
+            background: #1A1E2A;
+            border-radius: 1.5rem;
+            padding: 1rem;
+            transition: 0.2s;
+        }
+        .card iframe {
+            width: 100%;
+            height: 180px;
+            border-radius: 1rem;
+        }
+        .card a {
+            color: #FFB347;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-home {
+            display: block;
+            text-align: center;
+            margin-top: 2rem;
+            color: #FFB347;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎨 坠猩杯 · 二创回廊（全站）</h1>
+    <div class="gallery">
+        <!-- 每个卡片可以是一个二创视频或图片集 -->
+        <div class="card">
+            <iframe src="https://player.bilibili.com/player.html?bvid=BV1Xx411C7Yp" frameborder="0"></iframe>
+            <p>【胖蛋军团】名场面混剪 by 某蛋仔</p>
+            <a href="https://www.bilibili.com/video/BV1Xx411C7Yp" target="_blank">去B站支持 →</a>
+        </div>
+        <div class="card">
+            <iframe src="https://player.bilibili.com/player.html?bvid=BV1Xx411C7Yq" frameborder="0"></iframe>
+            <p>【猩仔联盟】逆转时刻</p>
+            <a href="https://www.bilibili.com/video/BV1Xx411C7Yq" target="_blank">去B站支持 →</a>
+        </div>
+        <!-- 继续添加更多二创 -->
+    </div>
+    <a href="index.html" class="back-home">← 返回首页海报</a>
+</body>
+</html>
