@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>选择你的阵营 · 坠猩杯</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 临时内联样式，稍后可移入 style.css */
+        body {
+            background: linear-gradient(145deg, #0B1120 0%, #19223B 100%);
+            font-family: 'Segoe UI', system-ui;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        h2 {
+            color: #FFD966;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        .hosts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            justify-content: center;
+            max-width: 1200px;
+        }
+        .host-card {
+            background: rgba(20, 28, 44, 0.7);
+            backdrop-filter: blur(12px);
+            border-radius: 2rem;
+            padding: 2rem;
+            width: 280px;
+            text-align: center;
+            transition: transform 0.25s, box-shadow 0.25s;
+            cursor: pointer;
+            border: 1px solid rgba(255, 111, 0, 0.3);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+        }
+        .host-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 40px rgba(255,111,0,0.2);
+            border-color: #FF6F00;
+        }
+        .avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #FFB347;
+            margin-bottom: 1rem;
+            background: #2a2f3f;
+        }
+        .host-name {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #FFB347;
+            margin: 0.5rem 0;
+        }
+        .team-badge {
+            background: #FF6F00;
+            display: inline-block;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            color: #0B1120;
+            font-weight: bold;
+        }
+        .back-home {
+            margin-top: 3rem;
+            background: none;
+            border: 1px solid #FFB347;
+            color: #FFB347;
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+        .back-home:hover {
+            background: #FF6F00;
+            color: #fff;
+            border-color: #FF6F00;
+        }
+    </style>
+</head>
+<body>
+    <h2>⚔️ 选择你的主理人 ⚔️</h2>
+    <div class="hosts">
+        <div class="host-card" onclick="location.href='taohaohei/index.html';">
+            <div class="avatar">🍑</div>
+            <div class="host-name">桃黑黑</div>
+            <div class="team-badge">胖蛋军团</div>
+        </div>
+        <div class="host-card" onclick="location.href='zhongguoboy/index.html';">
+            <div class="avatar">🦍</div>
+            <div class="host-name">中国boy</div>
+            <div class="team-badge">猩仔联盟</div>
+        </div>
+    </div>
+    <a href="index.html" class="back-home">← 返回海报</a>
+</body>
+</html>
