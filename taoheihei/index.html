@@ -3,23 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>胖蛋军团 · 坠猩杯档案馆</title>
-    <link rel="stylesheet" href="../style.css">
     <style>
         body { background: #0B1120; color: #e2e4e9; font-family: system-ui; padding: 2rem; }
         .container { max-width: 1200px; margin: 0 auto; }
         header { text-align: center; margin-bottom: 2rem; }
         h1 { color: #FFB347; }
         .back { display: inline-block; margin: 1rem 0; color: #FFB347; text-decoration: none; }
+        .team-section {
+            margin-bottom: 2.5rem;
+            background: #0f172a;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+        }
+        .team-title {
+            font-size: 1.5rem;
+            color: #FFD966;
+            border-left: 5px solid #FF6F00;
+            padding-left: 1rem;
+            margin-bottom: 1.2rem;
+        }
         .player-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1.2rem;
         }
         .player-card {
             background: #1A1E2A;
-            border-radius: 1.5rem;
-            padding: 1rem;
+            border-radius: 1.2rem;
+            padding: 0.8rem;
             text-align: center;
             transition: 0.2s;
             cursor: pointer;
@@ -31,22 +42,26 @@
             background: #202536;
         }
         .player-avatar {
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
             background: #2a2f3f;
             border-radius: 50%;
-            margin: 0 auto 0.8rem;
+            margin: 0 auto 0.6rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
+            font-size: 2.5rem;
         }
         .player-name {
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: bold;
             color: #FFD966;
         }
-        footer { text-align: center; margin-top: 3rem; color: #6c7080; }
+        footer { text-align: center; margin-top: 2rem; color: #6c7080; font-size: 0.8rem; }
+        @media (max-width: 640px) {
+            .player-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+            .player-avatar { width: 60px; height: 60px; font-size: 1.8rem; }
+        }
     </style>
 </head>
 <body>
@@ -56,45 +71,69 @@
         <h1>🍑 胖蛋军团</h1>
         <p>主理人：桃黑黑</p>
     </header>
-    <div class="player-grid">
-        <!-- 每个卡片点击后跳转到对应的选手页面 -->
-        <div class="player-card" onclick="location.href='players/pupu.html';">
-            <div class="player-avatar">🐣</div>
-            <div class="player-name">普普</div>
-        </div>
-        <div class="player-card" onclick="location.href='players/woduzidan.html';">
-            <div class="player-avatar">🥚</div>
-            <div class="player-name">我肚子蛋</div>
-        </div>
-        <div class="player-card" onclick="location.href='players/taomixicai.html';">
-            <div class="player-avatar">🧼</div>
-            <div class="player-name">淘米洗菜</div>
-        </div>
-        <div class="player-card" onclick="location.href='players/laolan.html';">
-            <div class="player-avatar">🛡️</div>
-            <div class="player-name">老兰</div>
-        </div>
-        <div class="player-card" onclick="location.href='players/caibaodududu.html';">
-            <div class="player-avatar">🥬</div>
-            <div class="player-name">菜包嘟嘟嘟</div>
-        </div>
-        <div class="player-card" onclick="location.href='players/wukui.html';">
-            <div class="player-avatar">🌻</div>
-            <div class="player-name">午葵</div>
-        </div>
-        <div class="player-card" onclick="location.href='players/heimapao.html';">
-            <div class="player-avatar">🐗</div>
-            <div class="player-name">黑猪快跑</div>
-        </div>
-        <div class="player-card" onclick="location.href='players/maomao.html';">
-            <div class="player-avatar">🐱</div>
-            <div class="player-name">猫猫猫猫猫</div>
-        </div>
-        <div class="player-card" onclick="location.href='players/aimu.html';">
-            <div class="player-avatar">💕</div>
-            <div class="player-name">爱慕</div>
+
+    <!-- 主理人队伍（桃黑黑核心队伍） -->
+    <div class="team-section">
+        <div class="team-title">👑 主理人队伍</div>
+        <div class="player-grid">
+            <div class="player-card" onclick="location.href='players/taoheihei.html';">
+                <div class="player-avatar">🍑</div>
+                <div class="player-name">桃黑黑</div>
+            </div>
+            <div class="player-card" onclick="location.href='players/yumijiang.html';">
+                <div class="player-avatar">🌽</div>
+                <div class="player-name">玉米酱</div>
+            </div>
+            <div class="player-card" onclick="location.href='players/xiyiji.html';">
+                <div class="player-avatar">🧺</div>
+                <div class="player-name">洗衣机</div>
+            </div>
+            <div class="player-card" onclick="location.href='players/dabaicai.html';">
+                <div class="player-avatar">🥬</div>
+                <div class="player-name">大白菜</div>
+            </div>
         </div>
     </div>
+
+    <!-- 队伍成员（其他选手） -->
+    <div class="team-section">
+        <div class="team-title">✨ 队伍成员</div>
+        <div class="player-grid">
+            <div class="player-card" onclick="location.href='players/pupu.html';">
+                <div class="player-avatar">🐣</div>
+                <div class="player-name">普普</div>
+            </div>
+            <div class="player-card" onclick="location.href='players/aimu.html';">
+                <div class="player-avatar">💕</div>
+                <div class="player-name">爱慕</div>
+            </div>
+            <div class="player-card" onclick="location.href='players/woduzidan.html';">
+                <div class="player-avatar">🥚</div>
+                <div class="player-name">我肚子蛋</div>
+            </div>
+            <div class="player-card" onclick="location.href='players/heimapao.html';">
+                <div class="player-avatar">🐗</div>
+                <div class="player-name">黑猪快跑</div>
+            </div>
+            <div class="player-card" onclick="location.href='players/maomao.html';">
+                <div class="player-avatar">🐱</div>
+                <div class="player-name">猫猫猫猫猫</div>
+            </div>
+            <div class="player-card" onclick="location.href='players/caibaodududu.html';">
+                <div class="player-avatar">🥟</div>
+                <div class="player-name">菜包嘟嘟嘟</div>
+            </div>
+            <div class="player-card" onclick="location.href='players/wukui.html';">
+                <div class="player-avatar">🌻</div>
+                <div class="player-name">午葵</div>
+            </div>
+            <div class="player-card" onclick="location.href='players/laolan.html';">
+                <div class="player-avatar">🛡️</div>
+                <div class="player-name">老兰</div>
+            </div>
+        </div>
+    </div>
+
     <footer>点击头像查看选手个人录屏 & 二创</footer>
 </div>
 </body>
