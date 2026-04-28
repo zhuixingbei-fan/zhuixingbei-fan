@@ -17,24 +17,25 @@
         h2 {
             color: #FFD966;
             font-size: 2rem;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             text-align: center;
         }
         .hosts {
             display: flex;
             flex-wrap: wrap;
-            gap: 3rem;
+            gap: 2rem;
             justify-content: center;
             max-width: 1200px;
+            margin-bottom: 2rem;
         }
         .host-card {
             background: rgba(20, 28, 44, 0.7);
             backdrop-filter: blur(12px);
             border-radius: 2rem;
-            padding: 2rem;
-            width: 280px;
+            padding: 1.5rem;
+            width: 240px;
             text-align: center;
-            transition: transform 0.25s, box-shadow 0.25s;
+            transition: 0.25s;
             cursor: pointer;
             border: 1px solid rgba(255, 111, 0, 0.3);
             box-shadow: 0 15px 30px rgba(0,0,0,0.4);
@@ -45,18 +46,18 @@
             border-color: #FF6F00;
         }
         .avatar {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
+            width: 100px;
+            height: 100px;
             background: #2a2f3f;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
-            margin: 0 auto 1rem;
+            font-size: 3rem;
+            margin: 0 auto 0.8rem;
         }
         .host-name {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: bold;
             color: #FFB347;
             margin: 0.5rem 0;
@@ -71,7 +72,7 @@
             font-weight: bold;
         }
         .back-home {
-            margin-top: 3rem;
+            margin-top: 2rem;
             background: none;
             border: 1px solid #FFB347;
             color: #FFB347;
@@ -85,24 +86,35 @@
             color: #fff;
             border-color: #FF6F00;
         }
+        @media (max-width: 700px) {
+            .host-card { width: 200px; }
+            .avatar { width: 80px; height: 80px; font-size: 2.5rem; }
+            .host-name { font-size: 1.2rem; }
+        }
     </style>
 </head>
 <body>
-    <h2>⚔️ 选择你的主理人 ⚔️</h2>
+    <h2>⚔️ 坠猩杯 · 档案馆 ⚔️</h2>
     <div class="hosts">
-        <!-- 注意：链接指向 taoheihei/index.html -->
+        <!-- 桃黑黑（胖蛋军团） -->
         <div class="host-card" onclick="location.href='taoheihei/index.html';">
             <div class="avatar">🍑</div>
             <div class="host-name">桃黑黑</div>
             <div class="team-badge">胖蛋军团</div>
         </div>
-        <!-- 链接指向 zhongguoboy/index.html -->
+        <!-- 中国boy（猩仔联盟） -->
         <div class="host-card" onclick="location.href='zhongguoboy/index.html';">
             <div class="avatar">🦍</div>
             <div class="host-name">中国boy</div>
             <div class="team-badge">猩仔联盟</div>
         </div>
+        <!-- 解说：僵尸教授 -->
+        <div class="host-card" onclick="location.href='jiangshijiaoshou.html';">
+            <div class="avatar">🧟‍♂️</div>
+            <div class="host-name">僵尸教授</div>
+            <div class="team-badge">赛事解说</div>
+        </div>
     </div>
-    <a href="index.html" class="back-home">← 返回海报</a>
+    <a href="index.html" class="back-home">← 返回首页海报</a>
 </body>
 </html>
