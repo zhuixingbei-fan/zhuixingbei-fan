@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>选择你的阵营 · 坠猩杯</title>
-    <link rel="stylesheet" href="style.css">
     <style>
-        /* 临时内联样式，稍后可移入 style.css */
         body {
             background: linear-gradient(145deg, #0B1120 0%, #19223B 100%);
             font-family: 'Segoe UI', system-ui;
@@ -50,10 +48,12 @@
             width: 140px;
             height: 140px;
             border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #FFB347;
-            margin-bottom: 1rem;
             background: #2a2f3f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            margin: 0 auto 1rem;
         }
         .host-name {
             font-size: 1.8rem;
@@ -90,11 +90,13 @@
 <body>
     <h2>⚔️ 选择你的主理人 ⚔️</h2>
     <div class="hosts">
-        <div class="host-card" onclick="location.href='taohaohei/index.html';">
+        <!-- 注意：链接指向 taoheihei/index.html -->
+        <div class="host-card" onclick="location.href='taoheihei/index.html';">
             <div class="avatar">🍑</div>
             <div class="host-name">桃黑黑</div>
             <div class="team-badge">胖蛋军团</div>
         </div>
+        <!-- 链接指向 zhongguoboy/index.html -->
         <div class="host-card" onclick="location.href='zhongguoboy/index.html';">
             <div class="avatar">🦍</div>
             <div class="host-name">中国boy</div>
