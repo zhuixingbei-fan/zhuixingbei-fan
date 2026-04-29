@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>六小 · 个人档案馆 | 坠猩杯</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #0a0f1f; font-family: 'Segoe UI', system-ui; color: #eef2ff; padding: 1.5rem; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        .back-link { display: inline-block; margin-bottom: 1.5rem; color: #FFB347; text-decoration: none; font-weight: 500; }
+        .back-link:hover { color: #FF6F00; transform: translateX(-3px); }
+        .profile-card {
+            background: linear-gradient(135deg, #111827 0%, #0f172a 100%);
+            border-radius: 2rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 111, 0, 0.3);
+        }
+        .avatar {
+            width: 120px;
+            height: 120px;
+            background: #1e293b;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            border: 3px solid #FFB347;
+        }
+        h1 { text-align: center; color: #FFD966; font-size: 2rem; }
+        .subtitle { text-align: center; color: #94a3b8; margin-bottom: 1.5rem; }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .info-item { background: #1e293b; padding: 0.75rem; border-radius: 1rem; text-align: center; }
+        .info-label { font-size: 0.75rem; color: #FFB347; text-transform: uppercase; }
+        .info-value { font-weight: bold; margin-top: 0.25rem; }
+        .section { background: #0f172a; border-radius: 1.5rem; padding: 1.5rem; margin-bottom: 2rem; border: 1px solid #1e293b; }
+        .section h2 { color: #FFB347; border-left: 4px solid #FF6F00; padding-left: 1rem; margin-bottom: 1rem; }
+        .video-list, .fan-list { display: flex; flex-direction: column; gap: 1rem; }
+        .video-card, .fan-card { background: #1e293b; border-radius: 1rem; padding: 1rem; }
+        .video-card iframe { width: 100%; height: 220px; border-radius: 0.75rem; margin-top: 0.5rem; }
+        .fan-card a { color: #FFB347; text-decoration: none; }
+        .quote {
+            font-style: italic;
+            background: #1a1f2e;
+            padding: 1rem;
+            border-radius: 1rem;
+            margin-top: 1rem;
+            border-left: 3px solid #FF6F00;
+            color: #cbd5e6;
+        }
+        footer { text-align: center; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #1e293b; color: #64748b; font-size: 0.8rem; }
+        @media (max-width: 640px) { .video-card iframe { height: 160px; } }
+    </style>
+</head>
+<body>
+<div class="container">
+    <a href="../index.html" class="back-link">← 返回猩仔联盟</a>
+    <div class="profile-card">
+        <div class="avatar">🎲</div>
+        <h1>六小</h1>
+        <div class="subtitle">猩仔联盟 · 核心队员</div>
+        <div class="info-grid">
+            <div class="info-item"><div class="info-label">身份</div><div class="info-value">主理人队伍</div></div>
+            <div class="info-item"><div class="info-label">特点</div><div class="info-value">全能指挥</div></div>
+        </div>
+        <div class="quote">“六小出手，局势全掌控。”</div>
+    </div>
+    <div class="section">
+        <h2>📹 比赛录屏</h2>
+        <div class="video-list">
+            <div class="video-card">
+                <div class="video-title">🏆 决赛高光（六小视角）</div>
+                <iframe src="https://player.bilibili.com/player.html?bvid=BV1Xx411C7Yc" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>🎨 粉丝二创</h2>
+        <div class="fan-list">
+            <div class="fan-card"><a href="#" target="_blank">🎬 【六小】名场面合辑</a></div>
+            <div class="fan-card"><a href="#" target="_blank">🖼️ 六小表情包</a></div>
+        </div>
+        <p style="margin-top:1rem;font-size:0.75rem">💡 点击链接跳转原平台支持创作者</p>
+    </div>
+    <footer>❤️ 粉丝自建 · 为热爱而生</footer>
+</div>
+</body>
+</html>
