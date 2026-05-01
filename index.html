@@ -11,18 +11,39 @@
             box-sizing: border-box;
         }
         body {
-            font-family: 'Segoe UI', 'Poppins', system-ui, -apple-system, sans-serif;
+            font-family: 'Segoe UI', 'Poppins', system-ui, sans-serif;
             height: 100vh;
-            background: linear-gradient(135deg, #0a0f1e 0%, #0f172a 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            overflow: hidden;
+            /* 背景图：你上传的图片 */
+            background-image: url('1000016890.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            /* 虚化效果：对背景图本身进行模糊 */
+            backdrop-filter: blur(8px);  /* 这里的数值越大越模糊 */
+            /* 为了确保背景图覆盖整个页面，同时文字不被虚化，需要加一层半透明层 */
+            position: relative;
+        }
+        /* 增加一个半透明黑色层，提高文字可读性（可选项，不想要可以删掉） */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);  /* 半透明黑色，数值越大越暗 */
+            z-index: 1;
         }
         .poster {
             text-align: center;
             animation: fadeInUp 1.2s ease-out;
+            position: relative;
+            z-index: 2;  /* 让文字浮在遮罩层之上 */
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
         h1 {
             font-size: 5rem;
@@ -35,9 +56,10 @@
         }
         .sub {
             font-size: 1.2rem;
-            color: #cbd5e6;
+            color: #f0f0f0;
             margin-top: 1rem;
             letter-spacing: 2px;
+            text-shadow: 0 0 4px rgba(0,0,0,0.5);
         }
         .enter-hint {
             position: absolute;
@@ -48,6 +70,7 @@
             color: #ff8c42;
             font-size: 0.9rem;
             animation: bounce 1.5s infinite;
+            text-shadow: 0 0 2px #000;
         }
         @keyframes fadeInUp {
             from {
@@ -63,23 +86,14 @@
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(8px); }
         }
-        /* 背景光晕 */
-        .glow {
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(255,111,0,0.2), transparent);
-            border-radius: 50%;
-            filter: blur(60px);
-            pointer-events: none;
+        /* 可选：移动端适配 */
+        @media (max-width: 700px) {
+            h1 { font-size: 2.5rem; }
+            .sub { font-size: 0.9rem; }
         }
-        .glow1 { top: 20%; left: 10%; }
-        .glow2 { bottom: 20%; right: 10%; }
     </style>
 </head>
 <body onclick="location.href='host.html';">
-    <div class="glow glow1"></div>
-    <div class="glow glow2"></div>
     <div class="poster">
         <h1>🦍 坠猩杯 · 档案馆 🥚</h1>
         <div class="sub">所有狂欢，在此永存</div>
