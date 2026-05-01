@@ -13,37 +13,25 @@
         body {
             font-family: 'Segoe UI', 'Poppins', system-ui, sans-serif;
             height: 100vh;
-            /* 背景图：你上传的图片 */
+            /* 背景图：你上传的图片，铺满全屏，不重复，居中 */
             background-image: url('1000016890.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            /* 虚化效果：对背景图本身进行模糊 */
-            backdrop-filter: blur(8px);  /* 这里的数值越大越模糊 */
-            /* 为了确保背景图覆盖整个页面，同时文字不被虚化，需要加一层半透明层 */
-            position: relative;
-        }
-        /* 增加一个半透明黑色层，提高文字可读性（可选项，不想要可以删掉） */
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4);  /* 半透明黑色，数值越大越暗 */
-            z-index: 1;
+            /* 取消模糊，没有任何filter */
+            cursor: pointer;
+            overflow: hidden;
         }
         .poster {
             text-align: center;
             animation: fadeInUp 1.2s ease-out;
-            position: relative;
-            z-index: 2;  /* 让文字浮在遮罩层之上 */
             height: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            /* 可选：给文字一个微弱的阴影，避免在亮色背景上看不清 */
+            text-shadow: 0 1px 4px rgba(0,0,0,0.4);
         }
         h1 {
             font-size: 5rem;
@@ -52,14 +40,13 @@
             background-clip: text;
             color: transparent;
             letter-spacing: 4px;
-            text-shadow: 0 0 20px rgba(255,111,0,0.3);
         }
         .sub {
             font-size: 1.2rem;
-            color: #f0f0f0;
+            color: #fff8f0;
             margin-top: 1rem;
             letter-spacing: 2px;
-            text-shadow: 0 0 4px rgba(0,0,0,0.5);
+            font-weight: 500;
         }
         .enter-hint {
             position: absolute;
@@ -67,10 +54,17 @@
             left: 0;
             right: 0;
             text-align: center;
-            color: #ff8c42;
+            color: #ffffff;
             font-size: 0.9rem;
             animation: bounce 1.5s infinite;
-            text-shadow: 0 0 2px #000;
+            font-weight: bold;
+            background: rgba(0,0,0,0.3);
+            display: inline-block;
+            width: fit-content;
+            margin: 0 auto;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            backdrop-filter: blur(4px); /* 仅给这个小按钮一点点毛玻璃，不是背景模糊 */
         }
         @keyframes fadeInUp {
             from {
@@ -86,7 +80,6 @@
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(8px); }
         }
-        /* 可选：移动端适配 */
         @media (max-width: 700px) {
             h1 { font-size: 2.5rem; }
             .sub { font-size: 0.9rem; }
