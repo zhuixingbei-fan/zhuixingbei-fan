@@ -13,40 +13,49 @@
         body {
             font-family: 'Segoe UI', 'Poppins', system-ui, sans-serif;
             height: 100vh;
-            /* 背景图：你上传的图片，铺满全屏，不重复，居中 */
-            background-image: url('00.jpg');
+            background-image: url('01.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            /* 取消模糊，没有任何filter */
-            cursor: pointer;
-            overflow: hidden;
+            backdrop-filter: blur(6px);
+            position: relative;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
         }
         .poster {
             text-align: center;
             animation: fadeInUp 1.2s ease-out;
+            position: relative;
+            z-index: 2;
             height: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            /* 可选：给文字一个微弱的阴影，避免在亮色背景上看不清 */
-            text-shadow: 0 1px 4px rgba(0,0,0,0.4);
         }
         h1 {
             font-size: 5rem;
-            background: linear-gradient(135deg, #FFB347, #FF6F00);
+            background: linear-gradient(135deg, #e0e0e0, #ffffff, #b0b0b0);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             letter-spacing: 4px;
+            text-shadow: 0 0 12px rgba(255,255,255,0.5);
         }
         .sub {
             font-size: 1.2rem;
-            color: #fff8f0;
+            color: #ffffff;
             margin-top: 1rem;
             letter-spacing: 2px;
-            font-weight: 500;
+            text-shadow: 0 0 4px rgba(0,0,0,0.5);
         }
         .enter-hint {
             position: absolute;
@@ -57,14 +66,7 @@
             color: #ffffff;
             font-size: 0.9rem;
             animation: bounce 1.5s infinite;
-            font-weight: bold;
-            background: rgba(0,0,0,0.3);
-            display: inline-block;
-            width: fit-content;
-            margin: 0 auto;
-            padding: 0.3rem 1rem;
-            border-radius: 40px;
-            backdrop-filter: blur(4px); /* 仅给这个小按钮一点点毛玻璃，不是背景模糊 */
+            text-shadow: 0 0 2px #000;
         }
         @keyframes fadeInUp {
             from {
@@ -88,9 +90,9 @@
 </head>
 <body onclick="location.href='host.html';">
     <div class="poster">
-        <h1>🦍 坠猩杯 · 档案馆 🥚</h1>
+        <h1> 坠猩杯 · 档案馆 </h1>
         <div class="sub">所有狂欢，在此永存</div>
         <div class="enter-hint">↓ 点击任意处进入 ↓</div>
     </div>
 </body>
-</html> 
+</html>
