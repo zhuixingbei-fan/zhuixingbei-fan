@@ -13,17 +13,16 @@
         body {
             font-family: 'Segoe UI', 'Poppins', system-ui, sans-serif;
             height: 100vh;
-            background-image: url('00.jpg');   /* 你的底图，包含草地、蛋仔、坠猩杯艺术字 */
+            background-image: url('00.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             position: relative;
             cursor: pointer;
         }
-        /* 八个字的容器：位于图片中间偏下（蛋仔下方） */
         .slogan {
             position: absolute;
-            bottom: 38%;            /* 调整这个值可以上下移动，根据蛋仔位置微调 */
+            bottom: 38%;
             left: 0;
             right: 0;
             text-align: center;
@@ -34,17 +33,15 @@
             font-weight: 400;
             background: rgba(0,0,0,0.3);
             backdrop-filter: blur(4px);
-            display: inline-block;
             width: fit-content;
-            margin: 0 auto;
+            max-width: 90%;
             padding: 0.4rem 1.2rem;
             border-radius: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            white-space: nowrap;
+            margin: 0 auto;
+            left: 0;
+            right: 0;
             z-index: 2;
         }
-        /* 底部点击提示 */
         .enter-hint {
             position: absolute;
             bottom: 8%;
@@ -57,23 +54,21 @@
             text-shadow: 0 0 4px black;
             background: rgba(0,0,0,0.4);
             backdrop-filter: blur(4px);
-            display: inline-block;
             width: fit-content;
-            margin: 0 auto;
+            max-width: 90%;
             padding: 0.3rem 1rem;
             border-radius: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            white-space: nowrap;
+            margin: 0 auto;
+            left: 0;
+            right: 0;
             z-index: 2;
         }
         @keyframes bounce {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(6px); }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(6px); }
         }
-        /* 移动端适配 */
         @media (max-width: 700px) {
-            .slogan { font-size: 0.8rem; bottom: 35%; padding: 0.2rem 0.8rem; white-space: nowrap; }
+            .slogan { font-size: 0.8rem; bottom: 35%; padding: 0.2rem 0.8rem; }
             .enter-hint { font-size: 0.7rem; bottom: 5%; }
         }
     </style>
