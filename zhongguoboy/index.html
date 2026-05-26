@@ -4,137 +4,211 @@
     <meta charset="UTF-8">
     <title>猩仔联盟 · 坠猩杯档案馆</title>
     <style>
-        body { background: #0B1120; color: #e2e4e9; font-family: system-ui; padding: 2rem; }
-        .container { max-width: 1200px; margin: 0 auto; }
-        header { text-align: center; margin-bottom: 2rem; }
-        h1 { color: #FFB347; }
-        .back { display: inline-block; margin: 1rem 0; color: #FFB347; text-decoration: none; }
-        .team-section {
-            margin-bottom: 2.5rem;
-            background: #0f172a;
-            border-radius: 1.5rem;
-            padding: 1.5rem;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .team-title {
-            font-size: 1.5rem;
-            color: #FFD966;
-            border-left: 5px solid #FF6F00;
-            padding-left: 1rem;
-            margin-bottom: 1.2rem;
-        }
-        .player-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 1.2rem;
-        }
-        .player-card {
-            background: #1A1E2A;
-            border-radius: 1.2rem;
-            padding: 0.8rem;
-            text-align: center;
-            transition: 0.2s;
-            cursor: pointer;
-            border: 1px solid #2A2F3F;
-        }
-        .player-card:hover {
-            transform: translateY(-5px);
-            border-color: #FF6F00;
-            background: #202536;
-        }
-        .player-avatar {
-            width: 80px;
-            height: 80px;
-            background: #2a2f3f;
-            border-radius: 50%;
-            margin: 0 auto 0.6rem;
+
+        body {
+            background: #f0f2f5;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
+            padding: 2rem;
         }
+
+        /* 粉蓝渐变边框容器（与主理人选择界面一致） */
+        .frame {
+            background: linear-gradient(135deg, #ffb6c1, #87cefa);
+            border-radius: 40px;
+            padding: 16px;
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 内部白色内容区 */
+        .white-bg {
+            background: #ffffff;
+            border-radius: 32px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        h2 {
+            color: #ff6699;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .subhead {
+            color: #ffb6c1;
+            margin-bottom: 2rem;
+        }
+
+        /* 分组标题 */
+        .team-title {
+            font-size: 1.5rem;
+            color: #ff6699;
+            border-left: 5px solid #ffb6c1;
+            padding-left: 1rem;
+            text-align: left;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        /* 成员网格 */
+        .player-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        /* 卡片样式 */
+        .player-card {
+            background: #f8f9fc;
+            border-radius: 2rem;
+            padding: 1.2rem;
+            text-align: center;
+            transition: 0.25s;
+            cursor: pointer;
+            border: 1px solid #e0e6f0;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+        }
+
+        .player-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+            border-color: #ffb6c1;
+        }
+
+        /* 头像图片样式（圆形） */
+        .avatar-img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin: 0 auto 0.8rem;
+            display: block;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            background: #fff0f5;
+        }
+
         .player-name {
-            font-size: 1rem;
+            font-size: 1.2rem;
             font-weight: bold;
-            color: #FFD966;
+            color: #ff6699;
+            margin: 0.5rem 0 0;
         }
-        footer { text-align: center; margin-top: 2rem; color: #6c7080; font-size: 0.8rem; }
-        @media (max-width: 640px) {
-            .player-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
-            .player-avatar { width: 60px; height: 60px; font-size: 1.8rem; }
+
+        /* 返回按钮 */
+        .back-home {
+            display: inline-block;
+            margin-top: 1rem;
+            background: none;
+            border: 1px solid #ffb6c1;
+            color: #ff6699;
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .back-home:hover {
+            background: #ffb6c1;
+            color: white;
+            border-color: #ffb6c1;
+        }
+
+        @media (max-width: 700px) {
+            .white-bg { padding: 1rem; }
+            .player-card { padding: 0.8rem; }
+            .avatar-img { width: 80px; height: 80px; }
+            .player-name { font-size: 1rem; }
+            h2 { font-size: 1.5rem; }
+            .team-title { font-size: 1.2rem; }
         }
     </style>
 </head>
 <body>
-<div class="container">
-    <a href="../host.html" class="back">← 返回阵营选择</a>
-    <header>
-        <h1>🦍 猩仔联盟</h1>
-        <p>主理人：中国boy · 核心队伍：六小、锦鲤、KB</p>
-    </header>
+<div class="frame">
+    <div class="white-bg">
+        <h2>🦍 猩仔联盟</h2>
+        <div class="subhead">主理人 · 中国boy</div>
 
-    <!-- 主理人 + 核心队伍 -->
-    <div class="team-section">
-        <div class="team-title">👑 主理人 & 核心队伍</div>
+        <!-- 主理人队伍 -->
+        <div class="team-title">👑 主理人队伍</div>
         <div class="player-grid">
+            <!-- 中国boy -->
             <div class="player-card" onclick="location.href='players/zhongguoboy.html';">
-                <div class="player-avatar">🇨🇳</div>
+                <img class="avatar-img" src="images/zhongguoboy.jpg" alt="中国boy" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22100%22%20height%3D%22100%22%20viewBox%3D%220%200%20100%20100%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20fill%3D%22%23fff0f5%22%2F%3E%3Ctext%20x%3D%2250%22%20y%3D%2255%22%20text-anchor%3D%22middle%22%20fill%3D%22%23ff6699%22%20font-size%3D%2240%22%3E🇨🇳%3C%2Ftext%3E%3C%2Fsvg%3E';">
                 <div class="player-name">中国boy</div>
             </div>
+            <!-- 六小 -->
             <div class="player-card" onclick="location.href='players/liuxiao.html';">
-                <div class="player-avatar">🎲</div>
+                <img class="avatar-img" src="images/liuxiao.jpg" alt="六小" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22100%22%20height%3D%22100%22%20viewBox%3D%220%200%20100%20100%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20fill%3D%22%23fff0f5%22%2F%3E%3Ctext%20x%3D%2250%22%20y%3D%2255%22%20text-anchor%3D%22middle%22%20fill%3D%22%23ff6699%22%20font-size%3D%2240%22%3E🎲%3C%2Ftext%3E%3C%2Fsvg%3E';">
                 <div class="player-name">六小</div>
             </div>
+            <!-- 锦鲤 -->
             <div class="player-card" onclick="location.href='players/jinli.html';">
-                <div class="player-avatar">🐟</div>
+                <img class="avatar-img" src="images/jinli.jpg" alt="锦鲤" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22100%22%20height%3D%22100%22%20viewBox%3D%220%200%20100%20100%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20fill%3D%22%23fff0f5%22%2F%3E%3Ctext%20x%3D%2250%22%20y%3D%2255%22%20text-anchor%3D%22middle%22%20fill%3D%22%23ff6699%22%20font-size%3D%2240%22%3E🐟%3C%2Ftext%3E%3C%2Fsvg%3E';">
                 <div class="player-name">锦鲤</div>
             </div>
+            <!-- KB -->
             <div class="player-card" onclick="location.href='players/kb.html';">
-                <div class="player-avatar">⌨️</div>
+                <img class="avatar-img" src="images/kb.jpg" alt="KB" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22100%22%20height%3D%22100%22%20viewBox%3D%220%200%20100%20100%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20fill%3D%22%23fff0f5%22%2F%3E%3Ctext%20x%3D%2250%22%20y%3D%2255%22%20text-anchor%3D%22middle%22%20fill%3D%22%23ff6699%22%20font-size%3D%2240%22%3E⌨️%3C%2Ftext%3E%3C%2Fsvg%3E';">
                 <div class="player-name">KB</div>
             </div>
         </div>
-    </div>
 
-    <!-- 队伍成员（原有8人） -->
-    <div class="team-section">
+        <!-- 队伍成员 -->
         <div class="team-title">✨ 队伍成员</div>
         <div class="player-grid">
+            <!-- 刘旋风 -->
             <div class="player-card" onclick="location.href='players/liuxuanfeng.html';">
-                <div class="player-avatar">💨</div>
+                <img class="avatar-img" src="images/liuxuanfeng.jpg" alt="刘旋风" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22100%22%20height%3D%22100%22%20viewBox%3D%220%200%20100%20100%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20fill%3D%22%23fff0f5%22%2F%3E%3Ctext%20x%3D%2250%22%20y%3D%2255%22%20text-anchor%3D%22middle%22%20fill%3D%22%23ff6699%22%20font-size%3D%2240%22%3E💨%3C%2Ftext%3E%3C%2Fsvg%3E';">
                 <div class="player-name">刘旋风</div>
             </div>
+            <!-- ykk -->
             <div class="player-card" onclick="location.href='players/ykk.html';">
-                <div class="player-avatar">🔥</div>
+                <img class="avatar-img" src="images/ykk.jpg" alt="ykk" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22100%22%20height%3D%22100%22%20viewBox%3D%220%200%20100%20100%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20fill%3D%22%23fff0f5%22%2F%3E%3Ctext%20x%3D%2250%22%20y%3D%2255%22%20text-anchor%3D%22middle%22%20fill%3D%22%23ff6699%22%20font-size%3D%2240%22%3E🔥%3C%2Ftext%3E%3C%2Fsvg%3E';">
                 <div class="player-name">ykk</div>
             </div>
+            <!-- 冷漠星星 -->
             <div class="player-card" onclick="location.href='players/lengmoxingxing.html';">
-                <div class="player-avatar">❄️</div>
+                <img class="avatar-img" src="images/lengmoxingxing.jpg" alt="冷漠星星" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22100%22%20height%3D%22100%22%20viewBox%3D%220%200%20100%20100%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20fill%3D%22%23fff0f5%22%2F%3E%3Ctext%20x%3D%2250%22%20y%3D%2255%22%20text-anchor%3D%22middle%22%20fill%3D%22%23ff6699%22%20font-size%3D%2240%22%3E❄️%3C%2Ftext%3E%3C%2Fsvg%3E';">
                 <div class="player-name">冷漠星星</div>
             </div>
+            <!-- 司南诶哟喂 -->
             <div class="player-card" onclick="location.href='players/sinanaiyowei.html';">
-                <div class="player-avatar">🎯</div>
+                <img class="avatar-img" src="images/sinanaiyowei.jpg" alt="司南诶哟喂" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22100%22%20height%3D%22100%22%20viewBox%3D%220%200%20100%20100%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20fill%3D%22%23fff0f5%22%2F%3E%3Ctext%20x%3D%2250%22%20y%3D%2255%22%20text-anchor%3D%22middle%22%20fill%3D%22%23ff6699%22%20font-size%3D%2240%22%3E🎯%3C%2Ftext%3E%3C%2Fsvg%3E';">
                 <div class="player-name">司南诶哟喂</div>
             </div>
+            <!-- 你喝水水麻 -->
             <div class="player-card" onclick="location.href='players/niheshuishuima.html';">
-                <div class="player-avatar">💧</div>
+                <img class="avatar-img" src="images/niheshuishuima.jpg" alt="你喝水水麻" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22100%22%20height%3D%22100%22%20viewBox%3D%220%200%20100%20100%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20fill%3D%22%23fff0f5%22%2F%3E%3Ctext%20x%3D%2250%22%20y%3D%2255%22%20text-anchor%3D%22middle%22%20fill%3D%22%23ff6699%22%20font-size%3D%2240%22%3E💧%3C%2Ftext%3E%3C%2Fsvg%3E';">
                 <div class="player-name">你喝水水麻</div>
             </div>
+            <!-- gaga -->
             <div class="player-card" onclick="location.href='players/gaga.html';">
-                <div class="player-avatar">⭐</div>
+                <img class="avatar-img" src="images/gaga.jpg" alt="gaga" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22100%22%20height%3D%22100%22%20viewBox%3D%220%200%20100%20100%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20fill%3D%22%23fff0f5%22%2F%3E%3Ctext%20x%3D%2250%22%20y%3D%2255%22%20text-anchor%3D%22middle%22%20fill%3D%22%23ff6699%22%20font-size%3D%2240%22%3E⭐%3C%2Ftext%3E%3C%2Fsvg%3E';">
                 <div class="player-name">gaga</div>
             </div>
+            <!-- 临清玄 -->
             <div class="player-card" onclick="location.href='players/linqingxuan.html';">
-                <div class="player-avatar">🌀</div>
+                <img class="avatar-img" src="images/linqingxuan.jpg" alt="临清玄" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22100%22%20height%3D%22100%22%20viewBox%3D%220%200%20100%20100%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20fill%3D%22%23fff0f5%22%2F%3E%3Ctext%20x%3D%2250%22%20y%3D%2255%22%20text-anchor%3D%22middle%22%20fill%3D%22%23ff6699%22%20font-size%3D%2240%22%3E🌀%3C%2Ftext%3E%3C%2Fsvg%3E';">
                 <div class="player-name">临清玄</div>
             </div>
+            <!-- 声优鬼 -->
             <div class="player-card" onclick="location.href='players/shengyougui.html';">
-                <div class="player-avatar">🎤</div>
+                <img class="avatar-img" src="images/shengyougui.jpg" alt="声优鬼" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22100%22%20height%3D%22100%22%20viewBox%3D%220%200%20100%20100%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20fill%3D%22%23fff0f5%22%2F%3E%3Ctext%20x%3D%2250%22%20y%3D%2255%22%20text-anchor%3D%22middle%22%20fill%3D%22%23ff6699%22%20font-size%3D%2240%22%3E🎤%3C%2Ftext%3E%3C%2Fsvg%3E';">
                 <div class="player-name">声优鬼</div>
             </div>
         </div>
-    </div>
 
-    <footer>点击头像查看选手个人录屏 & 二创</footer>
+        <a href="../host.html" class="back-home">← 返回阵营选择</a>
+    </div>
 </div>
 </body>
 </html>
